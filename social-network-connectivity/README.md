@@ -8,12 +8,12 @@ Assume that the log file is sorted by timestamp and that friendship is an equiva
 ## Gameplan
 
 We want to solve this in multiple steps
-1. Create a code base, put it in a state where it's able to read a file that contains that triplets (timestamp, p_number, q_number). We should take the filename as a commandline argument, and then read that file, parse the content.
+- Create a code base, put it in a state where it's able to read a file that contains that triplets (timestamp, p_number, q_number). We should take the filename as a commandline argument, and then read that file, parse the content.
   - Here we can think about errors & exceptions. E.g. what happens if there is no file with the given name
   - We'll learn about the Scanner class
   - Optional: We can learn about actual timestamps. E.g. Unix time, UTC time.
-2. Build a union-find implementation ourselves. And poke this. E.g:
+- Build a union-find implementation ourselves. And poke this. E.g:
   - Print internal data structures that the UnionFind class uses.
   - Add extra functions to this classs
   - Poke until we feel comfortable with the idea of this "union find" class.
-3. Solve the actual question
+- Solve the actual question

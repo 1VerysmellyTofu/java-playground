@@ -4,7 +4,7 @@ public class Connectivity {
         System.out.println("Herro");
         System.out.println(numArgs);
         for(int i = 0; i < numArgs; i++) {
-            String arg = args[i];
+            String arg = args[i]; // editing this file
             System.out.println(arg);
         }
     }

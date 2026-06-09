@@ -95,3 +95,32 @@ public static void main(String[] args) {
 >     return;
 > }
 > ```
+
+
+## Exercise
+
+Write a program in a file called `CmdExercise.java` that supports two modes:
+
+- `--is-equal <a> <b>`: print `Yes` if the two following arguments are the same string, otherwise print `No`.
+- `square <n>`: read the next argument as an integer and print its square.
+- Anything else: no arguments at all, an unknown mode, or the right mode with the wrong number of arguments — should print `Bad usage`.
+
+```bash
+java CmdExercise.java --is-equal apple orange
+> No
+
+java CmdExercise.java --is-equal mandarin mandarin
+> Yes
+
+java CmdExercise.java
+> Bad usage
+
+java CmdExercise.java huhuhuhu
+> Bad usage
+
+java CmdExercise.java square 16
+> 256
+
+java CmdExercise.java square asd
+> Bad usage
+```

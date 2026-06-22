@@ -15,6 +15,9 @@ java Main.java            # run a Java program
   - `~` (called a **tilde**) means your home directory shortcut for `/Users/yourname` on macOS/Linux
 - `ls` list the files in the current folder
 - `mkdir` **make directory**. Create a new folder.
+- `git status` shows current status of git local repository
+- `git add .` to add the local changes at the current directory to the local repository
+- `git commit -m "change summary"` stamping changes at local repository with comment on changes
 
 `cd`, `ls`, `open`, `code` are all programs themselves. And the "argument" idea applies to them too:
 

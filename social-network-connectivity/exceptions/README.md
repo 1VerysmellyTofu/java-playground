@@ -14,7 +14,7 @@ Java stops what it's doing and **throws an exception**. An exception is an objec
 
 Java has two types of exception:
 
-**Unchecked:** Tthe compiler doesn't force you to handle them. They can happen anywhere. Examples: `ArrayIndexOutOfBoundsException`, `NumberFormatException`, `InputMismatchException`, `NoSuchElementException`.
+**Unchecked:** The compiler doesn't force you to handle them. They can happen anywhere. Examples: `ArrayIndexOutOfBoundsException`, `NumberFormatException`, `InputMismatchException`, `NoSuchElementException`.
 
 **Checked:** The compiler *does* force you to handle them. If you call code that can throw one, you must either catch it or declare `throws` on your method. Example: `FileNotFoundException`.
 

@@ -1,5 +1,8 @@
+import java.util.Optional;
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.FileSystemLoopException;
 
 public class ScannerExample{
     // We talked about "returning two things from a function". Java doesn't
@@ -43,7 +46,8 @@ public class ScannerExample{
         int sum = fi + se;
         System.out.println(sum);
     }
-    private static Scanner createScanner(String[] args) throws Exception {
+
+    private static Scanner createScanner(String[] args) throws FileNotFoundException {
         String source = args[0].toLowerCase();
         Scanner sc = null;
         if(source.equals("stdin")) {

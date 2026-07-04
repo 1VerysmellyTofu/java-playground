@@ -11,8 +11,11 @@ Classes are sometimes "models" of real life entities, e.g a Student. A student c
 - Major
 
 In code, this'd look like
+
+**Note:** The snippets below are illustrative. In real Java everything lives inside a class, so the `main` method and helper functions would need to sit inside a class (e.g a `Main` class) to actually compile and run.
+
 ```java
-// In a file this Student class could be inside of the class whose name mathces the file's name. 
+// In a file this Student class could be inside of the class whose name matches the file's name. 
 public class Student {
     // Attributes (data)
     String name;
@@ -22,7 +25,7 @@ public class Student {
 }
 
 public static void main(String[] args) {
-    // Create object car1
+    // Create a Student object
     Student kid = new Student();
     kid.name = "Alice Wu";
     kid.age = 21;
@@ -39,10 +42,10 @@ public static void main(String[] args) {
 }
 
 private static void displayIntroText(Student s) {
-    System.out.println("Hello my name is " + s.name + ", I am " + s.age + "years old. I study " + s.major);
+    System.out.println("Hello my name is " + s.name + ", I am " + s.age + " years old. I study " + s.major);
 }
 
-private static void numCharactersInName(Student s) int {
+private static int numCharactersInName(Student s) {
     return s.name.length();
 }
 
@@ -59,7 +62,7 @@ In the above example, if we don't set `kid.name` after creating the `Student kid
 We can also add functions into classes. All attributes of a class instance, will be visible to that instance's functions. E.g in the above example, we could have written `displayIntroText` and `numCharactersInName` as "class methods"
 
 ```java
-// In a file this Student class could be inside of the class whose name mathces the file's name. 
+// In a file this Student class could be inside of the class whose name matches the file's name. 
 public class Student {
     // attributes (data)
     String name;
@@ -69,10 +72,10 @@ public class Student {
 
     // methods (functionality / actions)
     
-    // Unlike the previous example, this functions doesn't need the Student s argument.
+    // Unlike the previous example, this function doesn't need the Student s argument.
     // Because all of the above attributes are already visible to the function.
     void displayIntroText() {
-        System.out.println("Hello my name is " + name + ", I am " + age + "years old. I study " + major);
+        System.out.println("Hello my name is " + name + ", I am " + age + " years old. I study " + major);
     }
 
     int numCharactersInName() {
@@ -81,7 +84,7 @@ public class Student {
 }
 
 public static void main(String[] args) {
-    // Create object car1
+    // Create a Student object
     Student kid = new Student();
     kid.name = "Alice Wu";
     kid.age = 21;
@@ -94,18 +97,22 @@ public static void main(String[] args) {
     differentKid.age = 19;
     differentKid.major = "Maths";
     differentKid.studentNumber = 20240013;
-    differentKid.displayIntroText();;
+    differentKid.displayIntroText();
 }
 ```
 
 ### Constructors
 
-The function we call to create an instance of a class is called a `constructor` function. In Java, every object
-has a default constructor. Constructors are called with the keyword `new` In our examples the `Student()` function is the default
-constructor for Student class.
+The function we call to create an instance of a class is called a `constructor` function. Constructors are called with the
+keyword `new`. Java gives every class a free no-arg constructor (the "default constructor") — but **only until you write
+one of your own**. As soon as you define any constructor, that free one disappears. In our first examples we never wrote a
+constructor, so the `Student()` we called was the default one Java generated for us.
 
 We can add more constructors inside the class. This is mostly for ergonomic reasons. Such that the user of the class
 doesn't have to spend too much effort instantiating the class.
+
+Keep the disappearing default in mind for the example below: once we add our own constructors, `new Student()` no longer
+works unless we also write a no-arg constructor ourselves.
 
 Some rules:
 - A constructor function must have the same name as the class.
@@ -150,7 +157,7 @@ public class Student {
     }
 
     void displayIntroText() {
-        System.out.println("Hello my name is " + name + ", I am " + age + "years old. I study " + major);
+        System.out.println("Hello my name is " + name + ", I am " + age + " years old. I study " + major);
     }
 
     int numCharactersInName() {
@@ -159,6 +166,13 @@ public class Student {
 }
 
 public static void main(String[] args) {
+    // Uses the first (4-arg) constructor: (name, age, studentNumber, major)
     Student alice = new Student("Alice Wu", 22, 20240012, "Software Engineering");
-    Student bob = new Student("Bob", 19, "Martins" 20240013, "Maths");
+
+    // Uses the second (5-arg) constructor: (firstName, age, lastName, studentNumber, major)
+    Student bob = new Student("Bob", 19, "Martins", 20240013, "Maths");
+
+    alice.displayIntroText();
+    bob.displayIntroText();
+}
 ```
